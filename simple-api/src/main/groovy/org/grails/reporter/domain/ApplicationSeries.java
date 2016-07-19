@@ -16,20 +16,20 @@ import static com.google.common.collect.Lists.newArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
-public class DatadogSeries {
+public class ApplicationSeries {
 
     @JsonProperty
-    private List<DatadogMetric> series = newArrayList();
+    private List<ApplicationMetric> series = newArrayList();
 
-    public void add(DatadogMetric metric) {
+    public void add(ApplicationMetric metric) {
         series.add(metric);
     }
 
-    public void addAll(Collection<DatadogMetric> metrics) {
+    public void addAll(Collection<ApplicationMetric> metrics) {
         series.addAll(metrics);
     }
 
-    public List<DatadogMetric> getSeries() {
+    public List<ApplicationMetric> getSeries() {
         return series;
     }
 

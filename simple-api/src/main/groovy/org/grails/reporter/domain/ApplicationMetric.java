@@ -16,7 +16,7 @@ import static com.google.common.collect.Lists.newArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
-public abstract class DatadogMetric<T extends Number> {
+public abstract class ApplicationMetric<T extends Number> {
 
 	@JsonProperty
 	private String metric;
@@ -39,7 +39,7 @@ public abstract class DatadogMetric<T extends Number> {
 	@JsonProperty
 	private List<List<Number>> points;
 
-	public DatadogMetric(String metric, String type, T count, Long epoch, String host, List<String> tags) {
+	public ApplicationMetric(String metric, String type, T count, Long epoch, String host, List<String> tags) {
 		this.metric = metric;
 		this.type = type;
 		this.tags = newArrayList(tags);

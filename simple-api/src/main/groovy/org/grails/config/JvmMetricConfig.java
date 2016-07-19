@@ -15,9 +15,6 @@ public class JvmMetricConfig {
 
     @PostConstruct
     public void initMetrics() {
-        MetricUtil.registerJvmMemoryMetrics(metricRegistry);
-        MetricUtil.registerJvmGarbageCollectorMetrics(metricRegistry);
-        MetricUtil.registerJvmThreadMetrics(metricRegistry);
-        MetricUtil.registerJvmClassMetrics(metricRegistry);
+        MetricUtil.registerJvmMetrics(metricRegistry);
     }
 }

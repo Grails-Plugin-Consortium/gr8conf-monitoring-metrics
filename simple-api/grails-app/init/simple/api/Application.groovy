@@ -10,6 +10,7 @@ import org.grails.config.HealthCheckRegistryConfig
 import org.grails.config.HystrixConfig
 import org.grails.config.JvmMetricConfig
 import org.grails.config.MetricRegistryConfig
+import org.grails.config.MetricsServletConfig
 import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.context.embedded.ServletRegistrationBean
@@ -18,7 +19,9 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Import
 
-@Import([MetricRegistryConfig,
+@Import([
+        MetricsServletConfig,
+        MetricRegistryConfig,
         HystrixConfig,
         HealthCheckRegistryConfig,
         JvmMetricConfig
@@ -38,26 +41,5 @@ class Application extends GrailsAutoConfiguration {
     @Bean
     public String groupName() {
         return "grails";
-    }
-
-    @Bean
-    public ServletRegistrationBean hystrixStream(ApplicationContext context) {
-        return new ServletRegistrationBean(new HystrixMetricsStreamServlet(), "/hystrix.stream");
-    }
-
-    @Bean
-    public ServletRegistrationBean metricServlet(ApplicationContext applicationContext){
-        applicationContext.servletContext.setAttribute(MetricsServlet.METRICS_REGISTRY, applicationContext.getBean('metricRegistry'))
-        return new ServletRegistrationBean(new MetricsServlet(), "/metrics")
-    }
-
-    @Bean
-    public MetricRegistry metricRegistry(){
-        return new MetricRegistry();
-    }
-
-    @Bean
-    public HystrixCommandAspect hystrixAspect(){
-        return new HystrixCommandAspect()
     }
 }

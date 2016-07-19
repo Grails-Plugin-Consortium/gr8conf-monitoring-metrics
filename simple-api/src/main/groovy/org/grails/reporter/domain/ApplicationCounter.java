@@ -8,10 +8,9 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
-public class DatadogGauge extends DatadogMetric<Number> {
+public class ApplicationCounter extends ApplicationMetric<Long> {
 
-	public DatadogGauge(String metric, Number count, Long epoch, String host, List<String> tags) {
-		super(metric, "gauge", count, epoch, host, tags);
+	public ApplicationCounter(String metric, Long count, Long epoch, String host, List<String> tags) {
+		super(metric, "counter", count, epoch, host, tags);
 	}
-
 }
