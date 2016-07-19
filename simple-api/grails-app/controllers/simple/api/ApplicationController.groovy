@@ -1,15 +1,21 @@
 package simple.api
 
-import grails.core.GrailsApplication
-import grails.util.Environment
-import grails.plugins.*
+class ApplicationController {
 
-class ApplicationController implements PluginManagerAware {
+    DataService dataService
 
-    GrailsApplication grailsApplication
-    GrailsPluginManager pluginManager
-
+    //This will randomly fail on timeout
     def index() {
-        [grailsApplication: grailsApplication, pluginManager: pluginManager]
+        [name: dataService.getName()]
+    }
+
+    //This will cause circuits to close
+    def slow() {
+        [name: dataService.getNameLongRunning()]
+    }
+
+    //Seperate pool, should (ALMOST) always succeed
+    def fast() {
+        [name: dataService.getNameFast()]
     }
 }

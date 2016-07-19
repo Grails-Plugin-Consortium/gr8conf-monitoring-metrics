@@ -16,11 +16,11 @@ buildscript {
 version "0.1"
 group "simple.api"
 
-apply plugin:"eclipse"
-apply plugin:"idea"
-apply plugin:"war"
-apply plugin:"org.grails.grails-web"
-apply plugin:"org.grails.plugins.views-json"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "war"
+apply plugin: "org.grails.grails-web"
+apply plugin: "org.grails.plugins.views-json"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -60,7 +60,23 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:views-json"
     console "org.grails:grails-console"
-    profile "org.grails.profiles:rest-api:3.1.7"
+
+    compile 'io.dropwizard.metrics:metrics-core:3.1.2'
+    compile 'io.dropwizard.metrics:metrics-servlets:3.1.2'
+
+    compile 'com.netflix.archaius:archaius-core:0.7.4'
+    compile 'io.prometheus:simpleclient:0.0.15'
+    compile 'io.prometheus:simpleclient_common:0.0.15'
+
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+    compile "com.netflix.hystrix:hystrix-core:1.5.3"
+    compile "com.netflix.hystrix:hystrix-metrics-event-stream:1.5.3"
+    compile("com.netflix.hystrix:hystrix-javanica:1.5.3") {
+        exclude group: "org.ow2.asm", module: "asm"
+    }
+
+    profile "org.grails.profiles:rest-api:${grailsVersion}"
     runtime "com.h2database:h2"
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
