@@ -12,6 +12,8 @@ networks:
 services:
   simple-api:
     build: simple-api
+#    volumes:
+#      - ./agent:/agent
     ports:
       - "${IP}8282:8282"
 

@@ -9,4 +9,5 @@ RUN mkdir -p /simple-api
 
 ADD simple-api-0.1.war /simple-api/simple-api.war
 
+# CMD /bin/sh -c "java -javaagent:agent/jmx_prometheus_javaagent-0.7-SNAPSHOT.jar=1234:config.yaml -jar /simple-api/simple-api.war --spring.profiles.active=docker"
 CMD /bin/sh -c "java -jar /simple-api/simple-api.war --spring.profiles.active=docker"
