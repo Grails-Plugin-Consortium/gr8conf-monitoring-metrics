@@ -14,6 +14,8 @@ services:
     build: simple-api
 #    volumes:
 #      - ./agent:/agent
+    expose:
+      - 8282
     ports:
       - "${IP}8282:8282"
 
@@ -35,6 +37,7 @@ services:
       - 9090
     links:
       - cadvisor:cadvisor
+      - simple-api:simple-api
     depends_on:
       - cadvisor
     networks:

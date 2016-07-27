@@ -27,4 +27,16 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-         - targets: ['localhost:9090','cadvisor:8080','node-exporter:9100']
+      - targets: ['localhost:9090','cadvisor:8080','node-exporter:9100','simple-api:8282']
+
+   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+#  - job_name: 'simple-api'
+#
+#    # Override the global default and scrape targets from this job every 5 seconds.
+#    scrape_interval: 5s
+#
+#    # metrics_path defaults to '/metrics'
+#    # scheme defaults to 'http'.
+#    metrics_path: '/prometheus'
+#    static_configs:
+#      - targets: ['simple-api:8282']

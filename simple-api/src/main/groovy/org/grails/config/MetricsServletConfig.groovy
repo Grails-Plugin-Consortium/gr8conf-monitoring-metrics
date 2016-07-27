@@ -12,6 +12,6 @@ class MetricsServletConfig {
     @Bean
     public ServletRegistrationBean metricServlet(ApplicationContext applicationContext) {
         applicationContext.servletContext.setAttribute(MetricsServlet.METRICS_REGISTRY, applicationContext.getBean('metricRegistry'))
-        return new ServletRegistrationBean(new MetricsServlet(), "/metrics")
+        return new ServletRegistrationBean(new MetricsServlet(), "/metrics2")
     }
 }

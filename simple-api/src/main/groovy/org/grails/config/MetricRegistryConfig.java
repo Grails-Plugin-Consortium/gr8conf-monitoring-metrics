@@ -11,5 +11,4 @@ public class MetricRegistryConfig {
     public MetricRegistry metricRegistry() {
         return new MetricRegistry();
     }
-
 }

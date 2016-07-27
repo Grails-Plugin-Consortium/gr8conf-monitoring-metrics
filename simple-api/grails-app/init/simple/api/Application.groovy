@@ -1,20 +1,10 @@
 package simple.api
 
-import com.codahale.metrics.MetricRegistry
-import com.codahale.metrics.servlets.MetricsServlet
-import com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect
-import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration
-import org.grails.config.HealthCheckRegistryConfig
-import org.grails.config.HystrixConfig
-import org.grails.config.JvmMetricConfig
-import org.grails.config.MetricRegistryConfig
-import org.grails.config.MetricsServletConfig
+import org.grails.config.*
 import org.springframework.boot.actuate.autoconfigure.MetricRepositoryAutoConfiguration
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.boot.context.embedded.ServletRegistrationBean
-import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Import
@@ -26,7 +16,7 @@ import org.springframework.context.annotation.Import
         HealthCheckRegistryConfig,
         JvmMetricConfig
 ])
-@ComponentScan(["org.grails.config"])
+@ComponentScan(["org.grails.config","org.grails.health"])
 @EnableAutoConfiguration(exclude = [MetricRepositoryAutoConfiguration])
 class Application extends GrailsAutoConfiguration {
     static void main(String[] args) {

@@ -9,7 +9,7 @@ class PrometheusEndpoint extends AbstractEndpoint<String> {
     CollectorRegistry registry
 
     PrometheusEndpoint(CollectorRegistry registry) {
-        super('prometheus',false, true)
+        super('metrics',false, true)
         this.registry = registry
     }
 

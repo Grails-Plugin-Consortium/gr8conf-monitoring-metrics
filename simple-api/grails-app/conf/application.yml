@@ -1,3 +1,5 @@
+endpoints.metrics.enabled: false
+
 ---
 server:
   port: 8282
