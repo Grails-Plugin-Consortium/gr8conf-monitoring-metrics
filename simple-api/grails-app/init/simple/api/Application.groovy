@@ -14,9 +14,10 @@ import org.springframework.context.annotation.Import
         MetricRegistryConfig,
         HystrixConfig,
         HealthCheckRegistryConfig,
-        JvmMetricConfig
+        JvmMetricConfig,
+        MetricReporterConfig
 ])
-@ComponentScan(["org.grails.config","org.grails.health"])
+@ComponentScan(["org.grails.config", "org.grails.health"])
 @EnableAutoConfiguration(exclude = [MetricRepositoryAutoConfiguration])
 class Application extends GrailsAutoConfiguration {
     static void main(String[] args) {

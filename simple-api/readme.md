@@ -1,9 +1,6 @@
 Simple Api
 ----------
 
-
-
-
 Groovy Load Script
 
 ``` groovy 
